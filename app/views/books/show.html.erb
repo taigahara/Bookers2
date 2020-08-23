@@ -3,16 +3,17 @@
 
         <div class="col-xs-9" >
         <table class="table table-striped">
-                <h1>Book detail</h1>
-
-                <p><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></p>
-                <th><%= link_to @book.user.name, user_path(current_user.id) %></th>
-                <th><%= @book.title %></>
+                <h2>Book detail</h2>
+                <th>
+                 <p><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size:'60x60' %></p>
+                 <p><%= link_to @book.user.name, user_path(current_user.id) %></p>
+                </th>
+                <th><%= @book.title %></rh>
                 <th><%= @book.body %></th>
 
                 <% if @book.user == current_user %>
-                <td><%= link_to 'Edit', edit_book_path, class: "btn btn-default" %></td>
-                <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'You sure?' }, class: "btn btn-default"%></td>
+                        <td><%= link_to 'Edit', edit_book_path, class: "btn btn-success" %></td>
+                        <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'You sure?' }, class: "btn btn-danger"%></td>
                 <% end %>
         </table>
         </div>
